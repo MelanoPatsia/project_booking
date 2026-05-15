@@ -14,5 +14,14 @@ def login():
 def logout():
     return '<strong>Log out</strong> <button>Click</button>'
 
+
+@app.route('/register')
+def register():
+    return '<strong>Register</strong> <button>Click</button>'
+
+@app.route('/profile')
+def profile():
+    return '<strong>profile</strong> <button>Click</button>'
+
 if '__main__' == __name__:
     app.run()
