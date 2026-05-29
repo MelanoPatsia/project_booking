@@ -21,7 +21,7 @@ def contact():
 def new_project():
     if request.method == 'POST':
         title = request.form['title']
-        description = request.form['description']
+        description = request.form['description'][:150]
         link = request.form['link']
         project_status = request.form.get('project_status', 'open')
 

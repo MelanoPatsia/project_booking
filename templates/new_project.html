@@ -39,6 +39,7 @@
                 <input type="text"
                        class="form-control"
                        name="title"
+                       required
 
                        style="
                        border-radius: 12px;
@@ -51,12 +52,14 @@
             <div class="mb-4">
                 <label class="form-label"
                        style="color:#1F3A2A; font-weight:600;">
-                    პროექტის აღწერა
+                    პროექტის მოკლე აღწერა
                 </label>
 
                 <textarea class="form-control"
                           name="description"
                           rows="4"
+                          maxlength="150"
+                          required
 
                           style="
                           border-radius: 12px;
@@ -64,6 +67,10 @@
                           border: 1px solid #B7D6C0;
                           resize: none;
                           "></textarea>
+
+                <small style="color:#4F6B5A;">
+                    მაქსიმუმ 150 სიმბოლო. ეს ტექსტი გამოჩნდება პროექტის ბარათზე.
+                </small>
             </div>
 
 
@@ -76,6 +83,7 @@
                 <input type="text"
                        class="form-control"
                        name="link"
+                       required
 
                        style="
                        border-radius: 12px;
@@ -95,7 +103,6 @@
                        ">
                     პროექტის სტატუსი
                 </label>
-
 
                 <div style="
                     display:flex;

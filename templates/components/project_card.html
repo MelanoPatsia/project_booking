@@ -1,24 +1,30 @@
 <div class="card project-card h-100 shadow-sm">
 
     <div class="project-img-wrapper">
-        <img src="{{ project['link'] }}" alt="project image">
-    </div>
 
-    <div class="card-body d-flex flex-column">
+    <img src="{{ project['link'] }}" alt="project image">
 
-        <h5 class="card-title">{{ project['title'] }}</h5>
+    {% if project['project_status'] == 'open' %}
+        <span class="status-badge open">
+            ყოველთვის ღია
+        </span>
+    {% else %}
+        <span class="status-badge limited">
+            დრო შეზღუდულია
+        </span>
+    {% endif %}
 
-        <p class="card-text text-muted">
-            {{ project['description'] }}
-        </p>
+</div>
 
-        {% if project['project_status'] == 'open' %}
-            <span class="status-badge open">ყოველთვის ღია</span>
-        {% else %}
-            <span class="status-badge limited">დრო შეზღუდულია</span>
-        {% endif %}
+<div class="card-body d-flex flex-column">
 
-        <a href="#" class="btn btn-success mt-auto">
+    <h5 class="card-title">{{ project['title'] }}</h5>
+
+    <p class="card-text text-muted">
+        {{ project['description'] }}
+    </p>
+
+        <a href="#" class="project-button mt-auto">
     სრულად ნახვა
 </a>
 

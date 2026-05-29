@@ -54,22 +54,34 @@
 
 
 .project-card {
-    border-radius: 16px;
+    border-radius: 20px;
+
     overflow: hidden;
-    border: 1px solid #B7D6C0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background-color: #ffffff;
+
+    border: none;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 20px rgba(31,58,42,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(31,58,42,0.15);
 }
 
 .project-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    position: relative;
 }
 
 .project-img-wrapper img {
@@ -80,23 +92,26 @@
 }
 
 .status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
     padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
+    border-radius: 999px;
+
+    font-size: 12px;
     font-weight: 600;
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 12px;
+
+    backdrop-filter: blur(6px);
 }
 
-
 .status-badge.open {
-    background-color: #DFF5E8;
+    background: rgba(223,245,232,0.95);
     color: #1F7A4D;
 }
 
 .status-badge.limited {
-    background-color: #FFF1D6;
+    background: rgba(255,241,214,0.95);
     color: #B26A00;
 }
 
@@ -106,4 +121,21 @@
 
 .card-text {
     margin-bottom: 10px;
+}
+
+.project-button {
+    background-color: #1F3A2A;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: block;
+    transition: 0.2s;
+}
+
+.project-button:hover {
+    background-color: #2D523C;
+    color: white;
 }
