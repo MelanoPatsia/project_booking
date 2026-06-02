@@ -49,9 +49,43 @@
 }
 
 
+#Carousel
+
+.hero-carousel {
+    width: 90%;
+    margin: 0 auto;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.carousel-image {
+    width: 100%;
+
+    aspect-ratio: 16 / 7;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+}
+
+@media (max-width: 768px) {
+
+    .carousel-image {
+        aspect-ratio: 16 / 10;
+    }
+
+}
+
 
 #Project-Cards
-
 
 .project-card {
     border-radius: 20px;
