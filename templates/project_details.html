@@ -13,16 +13,21 @@
         box-shadow: 0px 6px 25px rgba(0,0,0,0.08);
     ">
 
-        <img src="{{ project['link'] }}"
-             alt="Project Image"
-             style="
-             width: 100%;
-             height: 450px;
-             object-fit: cover;
-             display: block;
-             ">
+        <div style="width:100%; height:450px; background:#f2f2f2;">
 
-        <div style="padding: 40px;">
+            <img src="{{ project['image_link'] }}"
+                 alt="Project Image"
+                 style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    display: block;
+                 ">
+
+        </div>
+
+        <div class="p-4 p-md-5">
 
             {% if project['project_status'] == 'open' %}
 
@@ -33,6 +38,7 @@
                     border-radius:999px;
                     font-weight:600;
                     font-size:14px;
+                    display:inline-block;
                 ">
                     ყოველთვის ღია
                 </span>
@@ -46,6 +52,7 @@
                     border-radius:999px;
                     font-weight:600;
                     font-size:14px;
+                    display:inline-block;
                 ">
                     დრო შეზღუდულია
                 </span>
@@ -63,11 +70,7 @@
 
             <hr>
 
-            <h4 style="
-                color:#1F3A2A;
-                margin-top:30px;
-                margin-bottom:15px;
-            ">
+            <h4 style="color:#1F3A2A;">
                 პროექტის აღწერა
             </h4>
 
@@ -79,24 +82,39 @@
                 {{ project['full_description'] }}
             </p>
 
-            <div style="margin-top:40px;">
+            <div style="margin-top:40px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
 
                 <a href="/current-projects"
                    style="
                    background-color:#1F3A2A;
                    color:white;
-                   text-decoration:none;
                    padding:12px 24px;
                    border-radius:12px;
                    font-weight:600;
+                   min-width:220px;
+                   text-align:center;
+                   text-decoration:none;
                    ">
-                    ← პროექტების გვერდზე გადასვლა
+                    ← პროექტების გვერდზე
+                </a>
+
+                <a href="/"
+                   style="
+                   background-color:#2D523C;
+                   color:white;
+                   padding:12px 24px;
+                   border-radius:12px;
+                   font-weight:600;
+                   min-width:220px;
+                   text-align:center;
+                   text-decoration:none;
+                   ">
+                    ← მთავარი გვერდი
                 </a>
 
             </div>
 
         </div>
-
     </div>
 
 </div>

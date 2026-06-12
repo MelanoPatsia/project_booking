@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
 
@@ -16,10 +17,6 @@
             </div>
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/5324973/pexels-photo-5324973.jpeg?_gl=1*zggpi6*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUyNzkkajYwJGwwJGgw"
-                     class="carousel-image" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="https://images.pexels.com/photos/33920051/pexels-photo-33920051.jpeg?_gl=1*1pjffxj*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUzMjMkajE2JGwwJGgw"
                      class="carousel-image" alt="...">
             </div>
             <div class="carousel-item">
@@ -43,21 +40,23 @@
         </button>
     </div>
 </div>
-<br>
-<div class="hero-carousel">
-    <h3>ბოლოს დამატებული პროექტები:</h3>
-    <br>
-    <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem;">
-        <div class="container mt-4">
+
+<div class="container mt-5">
+
+    <h3 class="mb-4">
+        ბოლოს დამატებული პროექტები
+    </h3>
+
     <div class="row g-4">
+
         {% for project in our_projects %}
-            <div class="col-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-lg-3">
                 {% include "components/project_card.html" %}
             </div>
         {% endfor %}
+
     </div>
-</div>
-    </div>
+
 </div>
 
 {% endblock %}

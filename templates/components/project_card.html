@@ -2,31 +2,31 @@
 
     <div class="project-img-wrapper">
 
-    <img src="{{ project['link'] }}" alt="project image">
+        <img src="{{ project['image_link'] }}" alt="project image">
 
-    {% if project['project_status'] == 'open' %}
-        <span class="status-badge open">
-            ყოველთვის ღია
-        </span>
-    {% else %}
-        <span class="status-badge limited">
-            დრო შეზღუდულია
-        </span>
-    {% endif %}
+        {% if project['project_status'] == 'open' %}
+            <span class="status-badge open">
+                ყოველთვის ღია
+            </span>
+        {% else %}
+            <span class="status-badge limited">
+                დრო შეზღუდულია
+            </span>
+        {% endif %}
 
-</div>
+    </div>
 
-<div class="card-body d-flex flex-column">
+    <div class="card-body d-flex flex-column">
 
-    <h5 class="card-title">{{ project['title'] }}</h5>
+        <h5 class="card-title">{{ project['title'] }}</h5>
 
-    <p class="card-text text-muted">
-        {{ project['description'] }}
-    </p>
+        <p class="card-text text-muted">
+            {{ project['short_description'] }}
+        </p>
 
         <a href="/project/{{ project['id'] }}" class="project-button mt-auto">
-    სრულად ნახვა
-</a>
+            სრულად ნახვა
+        </a>
 
     </div>
 
