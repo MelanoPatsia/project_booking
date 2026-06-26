@@ -1,26 +1,77 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
+from flask import Flask, render_template, request, redirect, session
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.secret_key = "rttTbFgKzuS7EQdh-2zpovltcAgvtDRJ"
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project_booking.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+
+class Project(db.Model):
+    __tablename__ = 'projects'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    short_description = db.Column(db.String)
+    full_description = db.Column(db.String)
+    image_link = db.Column(db.String)
+    project_status = db.Column(db.String)
+
+class User(db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    email = db.Column(db.String)
+    password = db.Column(db.String)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+
+    if request.method == 'POST':
+
+        email = request.form['email']
+        password = request.form['password']
+
+        user = User.query.filter_by(
+            email=email,
+            password=password
+        ).first()
+
+        if user:
+
+            session['logged_in'] = True
+
+            return redirect('/admin')
+
+    return render_template('login.html')
+
+@app.route('/admin')
+def admin():
+
+    if not session.get('logged_in'):
+        return redirect('/login')
+
+    return render_template('admin.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/')
 
 
 @app.route('/')
 def index():
-    conn = sqlite3.connect('project_booking.db')
-    c = conn.cursor()
-
-    projects = c.execute(
-        "SELECT * FROM projects ORDER BY id DESC"
-    ).fetchall()
-
-    our_projects = [{'id': row[0], 'title': row[1], 'short_description': row[2], 'image_link': row[4], 'project_status': row[5]} for row in projects]
-
-    conn.close()
+    projects = Project.query.order_by(
+        Project.id.desc()
+    ).all()
 
     return render_template(
         'index.html',
-        our_projects=our_projects
+        our_projects=projects
     )
 
 
@@ -43,28 +94,16 @@ def new_project():
         link = request.form['image_link']
         project_status = request.form.get('project_status', 'open')
 
-        conn = sqlite3.connect('project_booking.db')
-        c = conn.cursor()
+        project = Project(
+            title=title,
+            short_description=description,
+            full_description=full_description,
+            image_link=link,
+            project_status=project_status
+        )
 
-        c.execute("""
-            INSERT INTO projects (
-                title,
-                short_description,
-                full_description,
-                image_link,
-                project_status
-            )
-            VALUES (?, ?, ?, ?, ?)
-        """, (
-            title,
-            description,
-            full_description,
-            link,
-            project_status
-        ))
-
-        conn.commit()
-        conn.close()
+        db.session.add(project)
+        db.session.commit()
 
         return render_template(
             'success.html',
@@ -79,17 +118,9 @@ def new_project():
 
 @app.route('/current-projects')
 def current_projects():
-
-    conn = sqlite3.connect('project_booking.db')
-    conn.row_factory = sqlite3.Row
-
-    c = conn.cursor()
-
-    projects = c.execute(
-        "SELECT * FROM projects ORDER BY id DESC"
-    ).fetchall()
-
-    conn.close()
+    projects = Project.query.order_by(
+        Project.id.desc()
+    ).all()
 
     return render_template(
         'current_projects.html',
@@ -99,18 +130,7 @@ def current_projects():
 
 @app.route('/project/<int:project_id>')
 def project_details(project_id):
-
-    conn = sqlite3.connect('project_booking.db')
-    conn.row_factory = sqlite3.Row
-
-    c = conn.cursor()
-
-    project = c.execute(
-        "SELECT * FROM projects WHERE id = ?",
-        (project_id,)
-    ).fetchone()
-
-    conn.close()
+    project = db.session.get(Project, project_id)
 
     if project is None:
         return "Project not found", 404
