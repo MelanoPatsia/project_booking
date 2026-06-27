@@ -4,11 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.secret_key = "rttTbFgKzuS7EQdh-2zpovltcAgvtDRJ"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///project_booking.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/melano/Desktop/Project Booking/instance/project_booking.db'
 
 db = SQLAlchemy(app)
 
+with app.app_context():
+    print(db.engine.url)
 
 class Project(db.Model):
     __tablename__ = 'projects'
