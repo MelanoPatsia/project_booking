@@ -29,6 +29,14 @@ class User(db.Model):
     email = db.Column(db.String)
     password = db.Column(db.String)
 
+class Contact(db.Model):
+    __tablename__ = 'contacts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -80,14 +88,38 @@ def index():
 def about_us():
     return render_template('about_us.html')
 
-
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message = request.form['message']
 
+        new_contact = Contact(
+            name=name,
+            email=email,
+            message=message
+        )
+
+        db.session.add(new_contact)
+        db.session.commit()
+
+        return render_template(
+            'success.html',
+            title="შეტყობინება გაიგზავნა",
+            message="თქვენი შეტყობინება წარმატებით გაიგზავნა.",
+            button_text="მთავარ გვერდზე დაბრუნება",
+            redirect_url="/"
+        )
+
+    return render_template('contact.html')
 
 @app.route('/new_project', methods=['GET', 'POST'])
 def new_project():
+
+    if not session.get('logged_in'):
+        return redirect('/login')
+
     if request.method == 'POST':
         title = request.form['title']
         description = request.form['description']
@@ -141,6 +173,10 @@ def project_details(project_id):
         project=project
     )
 
+@app.route('/admin/contacts')
+def admin_contacts():
+    contacts = Contact.query.order_by(Contact.id.desc()).all()
+    return render_template('admin_contacts.html', contacts=contacts)
 
 if __name__ == '__main__':
     app.run()

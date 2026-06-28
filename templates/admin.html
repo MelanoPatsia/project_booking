@@ -1,20 +1,291 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Gzaari.ge</title>
 
-<div class="container py-5">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <div class="text-center mb-5">
-        <h1 style="color:#1F3A2A; font-weight:700;">
-            Admin Dashboard
-        </h1>
-        <p style="color:#4F6B5A;">
-            Welcome back, you are logged in.
-        </p>
-        <a href="/logout"
-        ><button type="button" class="btn btn-danger">logout</button></a>
+<style>
+
+    body{
+        background:#F4F8F5;
+        min-height:100vh;
+    }
+
+    .admin-navbar{
+        background:#1F3A2A;
+        padding:18px 0;
+    }
+
+    .admin-brand{
+    color:white;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.admin-brand:hover{
+    color:#B7D6C0;
+    text-decoration:none;
+}
+
+    .admin-link{
+    color:white !important;
+    margin-left:15px;
+    font-weight:500;
+}
+
+.admin-link:hover{
+    color:#B7D6C0 !important;
+}
+
+    .logout-btn{
+        background:#D9534F;
+        color:white !important;
+        padding:8px 18px;
+        border-radius:12px;
+        margin-left:20px;
+        text-decoration:none;
+        transition:0.3s;
+    }
+
+    .logout-btn:hover{
+        background:#C9302C;
+        color:white !important;
+    }
+
+    .dashboard-card{
+        background:white;
+        border-radius:25px;
+        box-shadow:0 8px 30px rgba(0,0,0,0.08);
+        padding:50px;
+    }
+
+    .welcome-title{
+        color:#1F3A2A;
+        font-weight:700;
+        margin-bottom:15px;
+    }
+
+    .welcome-text{
+        color:#4F6B5A;
+        font-size:18px;
+    }
+
+    .quick-card{
+    background:#F8FBF9;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    border:1px solid #E7EFEA;
+    transition:0.3s;
+
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.quick-card:hover{
+    transform:translateY(-5px);
+}
+
+    .quick-card:hover{
+        transform:translateY(-5px);
+    }
+
+    .quick-card h4{
+        color:#1F3A2A;
+        margin-bottom:15px;
+    }
+
+    .quick-card p{
+        color:#4F6B5A;
+    }
+
+    .quick-btn{
+    background:#1F3A2A;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:12px;
+    display:inline-block;
+    margin-top:auto;
+    align-self:center;
+    transition:0.3s;
+}
+
+.quick-btn:hover{
+    background:#2D523C;
+    color:white;
+    text-decoration:none;
+}
+
+    @media (max-width:991px){
+
+        .admin-link{
+            margin-left:0;
+            margin-top:10px;
+        }
+
+        .logout-btn{
+            margin-left:0;
+            margin-top:15px;
+            display:inline-block;
+        }
+
+        .dashboard-card{
+            padding:30px;
+        }
+    }
+
+    @media (max-width:576px){
+
+        .dashboard-card{
+            padding:25px;
+        }
+
+        .welcome-title{
+            font-size:30px;
+        }
+    }
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark admin-navbar">
+
+<div class="container">
+
+    <a class="admin-brand" href="{{ url_for('admin') }}">
+        Gzaari Dashboard
+    </a>
+
+    <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#adminNav">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="adminNav">
+
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+            <li class="nav-item">
+                <a class="nav-link admin-link" href="{{ url_for('current_projects') }}">
+                    პროექტები
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link admin-link" href="/new_project">
+                    პროექტის დამატება
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link admin-link" href="/admin/contacts">
+                    კონტაქტი
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/logout" class="logout-btn">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
     </div>
 
 </div>
 
-{% endblock %}
+</nav>
+
+<div class="container py-5">
+
+<div class="dashboard-card">
+
+    <h1 class="welcome-title">
+        Welcome back, Admin
+    </h1>
+
+    <p class="welcome-text">
+        Manage projects, review submissions and maintain the Gzaari platform from one place.
+    </p>
+
+    <div class="row mt-5 g-4">
+
+        <div class="col-lg-4">
+
+            <div class="quick-card">
+
+                <h4>პროექტები</h4>
+
+                <p>
+                    იხილეთ ყველა არსებული პროექტი
+                </p>
+
+                <a href="/current-projects" class="quick-btn">
+                    გახსნა
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="quick-card">
+
+                <h4>ახალი პროექტი</h4>
+
+                <p>
+                    დაამატეთ ახალი პროექტები პლატფორმაზე
+                </p>
+
+                <a href="/new_project" class="quick-btn">
+                    დამატება
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="quick-card">
+
+                <h4>კონტაქტი</h4>
+
+                <p>
+                    იხილეთ შეტყობინებები და საკონტაქტო ინფორმაცია
+                </p>
+
+                <a href="{{ url_for('admin_contacts') }}" class="quick-btn">
+                    გახსნა
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
