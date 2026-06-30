@@ -1,0 +1,267 @@
+#For admin.html
+
+.btn-filter {
+    border: 1px solid #1F3A2A;
+    color: #1F3A2A;
+    background: white;
+    margin-left: 6px;
+    border-radius: 10px;
+    padding: 6px 14px;
+    transition: 0.25s;
+    font-weight: 500;
+}
+
+.btn-filter:hover {
+    background: #1F3A2A;
+    color: white;
+}
+
+.btn-filter:checked + label,
+.btn-check:checked + .btn-filter {
+    background: #1F3A2A;
+    color: white;
+}
+
+.btn-edit {
+    background: #B7D6C0;
+    color: #1F3A2A;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    transition: 0.25s;
+    font-weight: 500;
+}
+
+.btn-edit:hover {
+    background: #9FC9AE;
+    color: #0F2A1C;
+}
+
+.btn-delete {
+    background: #D9534F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    transition: 0.25s;
+    font-weight: 500;
+}
+
+.btn-delete:hover {
+    background: #C9302C;
+    color: white;
+}
+
+
+.admin-card {
+    border-radius: 18px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.admin-title {
+    color: #1F3A2A;
+    font-weight: bold;
+    margin: 0;
+}
+
+.admin-filters {
+    margin-top: 10px;
+}
+
+.admin-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.admin-table-head {
+    background: #1F3A2A;
+    color: white;
+}
+
+.btn-filter {
+    border: 1px solid #1F3A2A;
+    color: #1F3A2A;
+    background: white;
+    margin-left: 6px;
+    border-radius: 10px;
+    padding: 6px 14px;
+    transition: 0.25s;
+    font-weight: 500;
+}
+
+.btn-filter:hover {
+    background: #1F3A2A;
+    color: white;
+}
+
+.btn-check:checked + .btn-filter {
+    background: #1F3A2A;
+    color: white;
+}
+
+.btn-edit {
+    background: #B7D6C0;
+    color: #1F3A2A;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-edit:hover {
+    background: #9FC9AE;
+    color: #0F2A1C;
+}
+
+.btn-delete {
+    background: #D9534F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn-delete:hover {
+    background: #C9302C;
+    color: white;
+}
+
+
+
+
+#For base.html
+
+.admin-body {
+    background: #F4F8F5;
+    min-height: 100vh;
+}
+
+.admin-navbar {
+    background: #1F3A2A;
+    padding: 15px 30px;
+}
+
+.admin-logo {
+    height: 42px;
+    width: 42px;
+    object-fit: cover;
+
+    border: 2px solid #B7D6C0;
+    border-radius: 50%;
+
+    padding: 2px;
+    margin-right: 12px;
+
+    box-shadow: 0 0 10px rgba(183,214,192,0.35);
+}
+
+.admin-brand-text {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.admin-link {
+    color: white !important;
+    margin-left: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.admin-link:hover {
+    color: #B7D6C0 !important;
+}
+
+.logout-btn {
+    background: #D9534F;
+    color: white !important;
+
+    padding: 8px 18px;
+    border-radius: 12px;
+
+    margin-left: 20px;
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #C9302C;
+    color: white !important;
+}
+
+@media (max-width: 991px) {
+
+    .admin-link {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .logout-btn {
+        margin-left: 0;
+        margin-top: 15px;
+        display: inline-block;
+    }
+}
+
+
+#For admin_contacts.html
+
+.admin-card {
+    background: white;
+    border-radius: 18px;
+}
+
+.admin-title {
+    color: #1F3A2A;
+    font-weight: bold;
+    margin: 0;
+}
+
+.admin-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.admin-table-head {
+    background: #1F3A2A;
+    color: white;
+}
+
+.message-cell {
+    max-width: 450px;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+.btn-delete {
+    background: #D9534F;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 12px;
+    transition: 0.25s;
+    font-weight: 500;
+}
+
+.btn-delete:hover {
+    background: #C9302C;
+    color: white;
+}
+
+.btn-delete:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

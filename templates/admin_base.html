@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Admin | Gzaari.ge{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="admin-body">
+
+<header class="admin-header">
+    <nav class="navbar navbar-expand-lg navbar-dark admin-navbar w-100 m-0">
+
+    <div class="container-fluid px-4">
+
+        <a class="navbar-brand d-flex align-items-center"
+           href="{{ url_for('admin') }}">
+
+            <img src="{{ url_for('static', filename='gzaari_logo.png') }}"
+                 alt="logo"
+                 style="
+                 height:42px;
+                 width:42px;
+                 object-fit:cover;
+                 border:2px solid #B7D6C0;
+                 border-radius:50%;
+                 padding:2px;
+                 box-shadow:0px 0px 10px rgba(183,214,192,0.35);
+                 margin-right:12px;
+                 ">
+
+            <span style="color:white; font-size:28px; font-weight:bold;">
+                Gzaari Dashboard
+            </span>
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#adminNav">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="adminNav">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link admin-link"
+                       href="{{ url_for('admin_projects') }}">
+                        პროექტები
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link admin-link"
+                       href="{{ url_for('new_project') }}">
+                        პროექტის დამატება
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link admin-link"
+                       href="{{ url_for('admin_contacts') }}">
+                        კონტაქტი
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url_for('logout') }}"
+                       class="logout-btn">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+</header>
+
+<main class="admin-main container py-4">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

@@ -3,17 +3,35 @@
 {% block content %}
 
 <div class="container mt-5">
-    <h1>პროექტები</h1>
+
+    <div class="projects-header">
+
+        <h1 class="projects-title">
+            პროექტები
+        </h1>
+
+        <p class="projects-subtitle">
+            აღმოაჩინე საინტერესო პროექტები, შეუერთდი გუნდებს და დაიწყე ახალი გამოცდილების მიღება.
+        </p>
+
+    </div>
 
 </div>
+
 <div class="container mt-4">
+
     <div class="row g-4">
+
         {% for project in projects %}
-            <div class="col-12 col-sm-6 col-lg-3">
-                {% include "components/project_card.html" %}
-            </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            {% include "components/project_card.html" %}
+        </div>
+
         {% endfor %}
+
     </div>
+
 </div>
 
 {% endblock %}

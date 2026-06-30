@@ -1,39 +1,96 @@
-{% extends "base.html" %}
+{% extends "admin_base.html" %}
 
 {% block content %}
 
 <div class="container mt-5">
 
-    <h2 style="color:#1F3A2A; font-weight:bold; margin-bottom:20px;">
-        Contact Messages
-    </h2>
+    <div class="card admin-card shadow-lg border-0 rounded-4">
 
-    <table class="table table-bordered table-hover">
+        <div class="card-body p-4">
 
-        <thead>
-    <tr>
-        <th>ID</th>
-        <th>სახელი, გვარი</th>
-        <th>ელ. ფოსტა</th>
-        <th>შეტყობინება</th>
-    </tr>
-</thead>
+            <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <tbody>
-            {% for c in contacts %}
-            <tr>
-                <td>{{ c.id }}</td>
-                <td>{{ c.name }}</td>
-                <td>{{ c.email }}</td>
-                <td style="max-width: 400px; white-space: pre-wrap;">
-    {{ c.message }}
-</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+                <h2 class="admin-title">
+                    კონტაქტის შეტყობინებები
+                </h2>
 
-    </table>
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle admin-table">
+
+                    <thead class="admin-table-head">
+
+                        <tr>
+                            <th>ID</th>
+                            <th>სახელი, გვარი</th>
+                            <th>ელ. ფოსტა</th>
+                            <th>შეტყობინება</th>
+                            <th>წაშლა</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for c in contacts %}
+
+                        <tr>
+
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.email }}</td>
+
+                            <td class="message-cell">
+                                {{ c.message }}
+                            </td>
+
+                            <td>
+
+                                <form method="POST"
+                                      action="{{ url_for('delete_contact', contact_id=c.id) }}"
+                                      onsubmit="return confirmDeleteContact(this)"
+                                      class="delete-form">
+
+                                    <button type="submit"
+                                            class="btn btn-delete btn-sm delete-btn">
+                                        წაშლა
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+
+<script>
+function confirmDeleteContact(form) {
+
+    const ok = confirm("დარწმუნებული ხარ რომ გინდა შეტყობინების წაშლა?");
+
+    if (!ok) return false;
+
+    const btn = form.querySelector(".delete-btn");
+    btn.disabled = true;
+    btn.innerText = "იშლება...";
+
+    return true;
+}
+</script>
 
 {% endblock %}

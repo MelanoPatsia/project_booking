@@ -173,3 +173,41 @@
     background-color: #2D523C;
     color: white;
 }
+
+
+
+#Current projects -header
+
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.projects-title {
+    color: #1F3A2A;
+    font-size: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.projects-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #5D7467;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+
+    .projects-title {
+        font-size: 2.2rem;
+    }
+
+    .projects-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+}
