@@ -2,70 +2,115 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
 
-    <div class="card p-4 shadow-sm">
+    <div class="edit-project-card">
 
-        <h3 style="color:#1F3A2A; font-weight:bold;">
+        <h2 class="edit-project-title">
             პროექტის რედაქტირება
-        </h3>
+        </h2>
 
         <form method="POST">
 
-            <div class="mb-3">
-                <label>სათაური</label>
-                <input class="form-control"
+            <div class="mb-4">
+                <label class="edit-label">
+                    სათაური
+                </label>
+
+                <input class="form-control edit-input"
                        name="title"
                        value="{{ project.title }}">
             </div>
 
-            <div class="mb-3">
-                <label>მოკლე აღწერა</label>
-                <input class="form-control"
-                       name="short_description"
-                       value="{{ project.short_description }}">
+
+            <div class="mb-4">
+                <label class="edit-label">
+                    მოკლე აღწერა
+                </label>
+
+                <textarea class="form-control edit-input"
+                          name="short_description"
+                          rows="3">{{ project.short_description }}</textarea>
             </div>
 
-            <div class="mb-3">
-                <label>სრული აღწერა</label>
-                <textarea class="form-control"
-                          name="full_description">{{ project.full_description }}</textarea>
+
+            <div class="mb-4">
+                <label class="edit-label">
+                    სრული აღწერა
+                </label>
+
+                <textarea class="form-control edit-input"
+                          name="full_description"
+                          rows="7">{{ project.full_description }}</textarea>
             </div>
 
-            <div class="mb-3">
-                <label>სურათის ლინკი</label>
-                <input class="form-control"
+
+            <div class="mb-4">
+                <label class="edit-label">
+                    დამატებითი ინფორმაცია
+                </label>
+
+                <textarea class="form-control edit-input"
+                          name="additional_info"
+                          rows="5">{{ project.additional_info }}</textarea>
+
+                <small class="edit-help">
+                    ბმული, ტელეფონი, სოციალური ქსელი ან სხვა დეტალები.
+                </small>
+            </div>
+
+
+            <div class="mb-4">
+                <label class="edit-label">
+                    სურათის ლინკი
+                </label>
+
+                <input class="form-control edit-input"
                        name="image_link"
                        value="{{ project.image_link }}">
             </div>
 
-            <div class="mb-3">
-                <label>სტატუსი</label>
-                <select class="form-control" name="project_status">
+
+            <div class="mb-4">
+
+                <label class="edit-label">
+                    სტატუსი
+                </label>
+
+                <select class="form-control edit-input"
+                        name="project_status">
+
                     <option value="open"
-                            {% if project.project_status == 'open' %}selected{% endif %}>
+                    {% if project.project_status == 'open' %}selected{% endif %}>
                         ყოველთვის ღია
                     </option>
 
                     <option value="limited"
-                            {% if project.project_status == 'limited' %}selected{% endif %}>
-                        შეზღუდული
+                    {% if project.project_status == 'limited' %}selected{% endif %}>
+                        დრო შეზღუდულია
                     </option>
+
                 </select>
+
             </div>
 
-            <div class="d-flex gap-2 mt-3">
 
-                <button type="submit" class="btn btn-success">
+            <div class="d-flex gap-3">
+
+                <button type="submit"
+                        class="edit-save-btn">
                     შენახვა
                 </button>
 
+
                 <a href="{{ url_for('admin_projects') }}"
-                    class="btn btn-secondary">
+                   class="edit-cancel-btn">
                     გაუქმება
                 </a>
 
             </div>
+
+
         </form>
 
     </div>

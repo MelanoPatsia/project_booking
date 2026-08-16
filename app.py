@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from functools import wraps
+import re
 
 app = Flask(__name__)
 app.secret_key = "rttTbFgKzuS7EQdh-2zpovltcAgvtDRJ"
@@ -10,7 +11,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
 )
 
 db = SQLAlchemy(app)
-
 
 def login_required(f):
     @wraps(f)
@@ -31,6 +31,7 @@ class Project(db.Model):
     full_description = db.Column(db.String)
     image_link = db.Column(db.String)
     project_status = db.Column(db.String)
+    additional_info = db.Column(db.String)
 
 
 class User(db.Model):
@@ -50,7 +51,21 @@ class Contact(db.Model):
     email = db.Column(db.String(120), nullable=False)
     message = db.Column(db.Text, nullable=False)
 
+@app.template_filter('linkify')
+def linkify(text):
 
+    if not text:
+        return ""
+
+    url_pattern = r'(https?://[^\s]+)'
+
+    text = re.sub(
+        url_pattern,
+        r'<a href="\1" target="_blank">\1</a>',
+        text
+    )
+
+    return text
 
 @app.route('/')
 def index():
@@ -156,7 +171,8 @@ def new_project():
             short_description=request.form['description'],
             full_description=request.form['full_description'],
             image_link=request.form['image_link'],
-            project_status=request.form.get('project_status', 'open')
+            project_status=request.form.get('project_status', 'open'),
+            additional_info = request.form['additional_info']
         )
 
         db.session.add(project)
@@ -190,6 +206,7 @@ def edit_project(project_id):
         project.full_description = request.form['full_description']
         project.image_link = request.form['image_link']
         project.project_status = request.form['project_status']
+        project.additional_info = request.form.get('additional_info', '')
 
         db.session.commit()
 

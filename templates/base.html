@@ -10,35 +10,20 @@
 <body>
 
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark"
-     style="background-color: #1F3A2A; padding: 15px 30px;">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
 
     <div class="container-fluid">
 
 
         <a class="navbar-brand d-flex align-items-center" href="/">
 
-    <img src="/static/gzaari_logo.png"
+            <img src="/static/gzaari_logo.png"
      alt="logo"
+     class="navbar-logo">
 
-     style="
-     height: 42px;
-     width: 42px;
-     object-fit: cover;
-
-     border: 2px solid #B7D6C0;
-     border-radius: 50%;
-
-     padding: 2px;
-
-     box-shadow: 0px 0px 10px rgba(183,214,192,0.35);
-
-     margin-right: 12px;
-     ">
-
-    <span style="color: white; font-size: 28px; font-weight: bold;">
-        Gzaari.ge
-    </span>
+    <span class="brand-text">
+    Gzaari.ge
+</span>
 
 </a>
 
@@ -61,32 +46,28 @@
 
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="/"
-                       style="color: white;">
+                       href="/">
                         მთავარი
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="/current-projects"
-                       style="color: white;">
+                       href="/current-projects">
                         პროექტები
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="/about-us"
-                       style="color: white;">
+                       href="/about-us">
                         ჩვენს შესახებ
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
-                       href="/contact"
-                       style="color: white;">
+                       href="/contact">
                         კონტაქტი
                     </a>
                 </li>
@@ -103,18 +84,7 @@
 {% endblock %}
 
 
-
-
-
-<footer
-style="
-background-color: #1F3A2A;
-color: white;
-margin-top: 80px;
-padding-top: 50px;
-padding-bottom: 25px;
-border-top: 1px solid rgba(255,255,255,0.08);
-">
+<footer class="site-footer">
 
     <div class="container">
 
@@ -123,11 +93,11 @@ border-top: 1px solid rgba(255,255,255,0.08);
 
             <div class="col-lg-6 mb-4">
 
-                <h3 style="font-weight: bold;">
+                <h3>
                     Gzaari.ge
                 </h3>
 
-                <p style="color: #B7D6C0; max-width: 500px; margin-top: 15px;">
+                <p class="footer-description">
                    აღმოაჩინე პროექტები, სხვებთან კოლაბორაცია სხვა სტუდენტებთან, მონაწილეობის მიღება, ტუტორინგი, და სხვა მრავალი!
                 </p>
 
@@ -135,29 +105,25 @@ border-top: 1px solid rgba(255,255,255,0.08);
 
             <div class="col-lg-3 mb-4">
 
-                <h5 style="margin-bottom: 18px;">
-                    Navigation
+                <h5>
+                    ნავიგაცია
                 </h5>
 
-                <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="footer-links">
 
-                    <a href="/"
-                       style="color: #B7D6C0; text-decoration: none;">
+                    <a href="/">
                         მთავარი
                     </a>
 
-                    <a href="/current-projects"
-                       style="color: #B7D6C0; text-decoration: none;">
+                    <a href="/current-projects">
                         პროექტები
                     </a>
 
-                    <a href="/about-us"
-                       style="color: #B7D6C0; text-decoration: none;">
+                    <a href="/about-us">
                         ჩვენს შესახებ
                     </a>
 
-                    <a href="/contact"
-                       style="color: #B7D6C0; text-decoration: none;">
+                    <a href="/contact">
                         კონტაქტი
                     </a>
 
@@ -168,15 +134,15 @@ border-top: 1px solid rgba(255,255,255,0.08);
 
             <div class="col-lg-3 mb-4">
 
-                <h5 style="margin-bottom: 18px;">
-                    Contact
+                <h5>
+                    კონტაქტი
                 </h5>
 
-                <p style="color: #B7D6C0;">
+                <p>
                     info@gzaari.ge
                 </p>
 
-                <p style="color: #B7D6C0;">
+                <p>
                     Tbilisi, Georgia
                 </p>
 
@@ -185,9 +151,9 @@ border-top: 1px solid rgba(255,255,255,0.08);
         </div>
 
 
-        <hr style="background-color: rgba(255,255,255,0.1);">
+        <hr class="footer-divider">
 
-        <div style="text-align: center; color: #B7D6C0;">
+        <div class="footer-bottom">
 
             © 2026 Gzaari.ge — All Rights Reserved
 

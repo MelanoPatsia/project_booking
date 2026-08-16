@@ -4,86 +4,113 @@
 {% block content %}
 
 
-<div style="width: 90%; margin-left: 5%;">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<div class="hero-carousel">
+
+    <div id="carouselExampleControls"
+         class="carousel slide"
+         data-bs-ride="carousel">
+
         <div class="carousel-inner">
+
             <div class="carousel-item active">
                 <img src="https://images.pexels.com/photos/36765619/pexels-photo-36765619.jpeg?_gl=1*1gxlcgx*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUxNjIkajU3JGwwJGgw"
-                     class="carousel-image" alt="...">
+                     class="carousel-image"
+                     alt="Project">
             </div>
+
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/5537517/pexels-photo-5537517.jpeg?_gl=1*1pf13d5*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUyNTEkajI4JGwwJGgw"
-                     class="carousel-image" alt="...">
+                     class="carousel-image"
+                     alt="Project">
             </div>
+
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/5324973/pexels-photo-5324973.jpeg?_gl=1*zggpi6*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUyNzkkajYwJGwwJGgw"
-                     class="carousel-image" alt="...">
+                     class="carousel-image"
+                     alt="Project">
             </div>
+
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/7692992/pexels-photo-7692992.jpeg?_gl=1*1t6asr1*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTUzOTAkajI3JGwwJGgw"
-                     class="carousel-image" alt="...">
+                     class="carousel-image"
+                     alt="Project">
             </div>
+
             <div class="carousel-item">
                 <img src="https://images.pexels.com/photos/7342634/pexels-photo-7342634.jpeg?_gl=1*q9mq15*_ga*MTMyMjQzNTA5Mi4xNzc5NjkzMTM0*_ga_8JE65Q40S6*czE3ODA0MTUwODQkbzkkZzEkdDE3ODA0MTU1NjMkajQzJGwwJGgw"
-                     class="carousel-image" alt="...">
+                     class="carousel-image"
+                     alt="Project">
             </div>
+
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+
+            <span class="carousel-control-prev-icon"
+                  aria-hidden="true"></span>
+
+            <span class="visually-hidden">
+                Previous
+            </span>
+
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls"
                 data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true"></span>
+
+            <span class="visually-hidden">
+                Next
+            </span>
+
         </button>
+
     </div>
+
 </div>
+
 
 <div class="container mt-5">
 
-    <div class="text-center mb-5">
+    <div class="homepage-project-header">
 
-    <span style="
-        color:#4F6B5A;
-        font-weight:600;
-        letter-spacing:2px;
-        text-transform:uppercase;
-        font-size:14px;
-    ">
-        GZAARI.GE
-    </span>
+        <span class="homepage-label">
+            GZAARI.GE
+        </span>
 
-    <h1 style="
-        color:#1F3A2A;
-        font-weight:800;
-        margin-top:15px;
-        font-size:42px;
-    ">
-        ბოლოს დამატებული პროექტები
-    </h1>
+        <h1 class="homepage-title">
+            ბოლოს დამატებული პროექტები
+        </h1>
 
-    <div style="
-        width:90px;
-        height:4px;
-        background:#B7D6C0;
-        margin:20px auto 0 auto;
-        border-radius:20px;
-    "></div>
+        <div class="homepage-divider"></div>
 
-</div>
+    </div>
+
 
     <div class="row g-4">
 
         {% for project in our_projects %}
+
             <div class="col-12 col-sm-6 col-lg-3">
+
                 {% include "components/project_card.html" %}
+
             </div>
+
         {% endfor %}
 
     </div>
 
 </div>
+
 
 {% endblock %}
