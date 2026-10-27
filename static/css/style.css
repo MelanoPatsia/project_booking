@@ -636,3 +636,220 @@
 .success-button:hover {
     background: #2D523C;
 }
+
+/* About Us page */
+
+.about-hero {
+    padding: 70px 0 50px;
+    background: #F8FBF9;
+}
+
+.about-header {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-label {
+    color: #4F6B5A;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.about-title {
+    color: #1F3A2A;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 18px;
+}
+
+.about-subtitle {
+    color: #5D7467;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+.about-container {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+
+.about-card {
+    background: #F4F8F5;
+    max-width: 900px;
+    margin: 0 auto 35px;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+
+.about-card h2 {
+    color: #1F3A2A;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+.about-card p {
+    color: #4F6B5A;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* About values */
+
+.about-values {
+    max-width: 1100px;
+    margin: 50px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.about-value {
+    background: white;
+
+    padding: 35px 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 20px rgba(31,58,42,0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.about-value:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 28px rgba(31,58,42,0.13);
+}
+
+
+.about-value-icon {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #DFF5E8;
+
+    color: #1F7A4D;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.about-value h3 {
+    color: #1F3A2A;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+
+.about-value p {
+    color: #4F6B5A;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* Final section */
+
+.about-final-card {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.about-final-card p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+}
+
+
+.about-button {
+    display: inline-block;
+
+    background: #1F3A2A;
+    color: white;
+
+    padding: 12px 28px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+
+.about-button:hover {
+    background: #2D523C;
+    color: white;
+}
+
+
+/* About Us responsive */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        padding: 50px 0 35px;
+    }
+
+    .about-title {
+        font-size: 2.3rem;
+    }
+
+    .about-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-card {
+        padding: 30px 25px;
+    }
+
+    .about-values {
+        grid-template-columns: 1fr;
+        margin: 35px auto;
+    }
+
+}
